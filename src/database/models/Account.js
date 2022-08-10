@@ -1,29 +1,47 @@
-import { Sequelize, DataTypes } from 'sequelize'
+module.exports = (sequelize, DataTypes) => {
+  const alias = 'Account'
 
-const sequelize = new Sequelize('sqlite::memory:')
-
-export const Account = sequelize.define('Account', {
-  id: {
-    primaryKey: true,
-    autoIncrement: true,
-    type: DataTypes.INTEGER.UNSIGNED,
-    allowNull: false
-  },
-  userId: {
-    type: DataTypes.INTEGER.UNSIGNED
-  },
-  balance: {
-    type: DataTypes.INTEGER.UNSIGNED,
-    allowNull: false,
-    defaultValue: 0
+  const cols = {
+    id: {
+      primaryKey: true,
+      autoIncrement: true,
+      type: DataTypes.INTEGER.UNSIGNED,
+      allowNull: false
+    },
+    userId: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      field: 'user_id'
+    },
+    balance: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      allowNull: false,
+      defaultValue: 0
+    }
   }
-}, {
-  timestamps: false
-})
 
-Account.belongsTo('User', {
-  as: 'user',
-  foreignKey: 'userId'
-})
+  const config = {
+    underscored: true,
+    tableName: 'accounts',
+    timestamps: false,
+    paranoid: false,
+    charset: 'utf8',
+    dialectOptions: {
+      collate: 'utf8mb4_unicode:ci'
+    }
+  }
 
-Account.hasMany('Transactions')
+  const Account = sequelize.define(
+    alias,
+    cols,
+    config
+  )
+
+  Account.associate = (model) => {
+    Account.hasOne(model.Transaction, {
+      as: 'user',
+      foreignKey: 'user_id'
+    })
+  }
+
+  return Account
+}

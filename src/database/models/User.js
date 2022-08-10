@@ -1,25 +1,47 @@
-import { Sequelize, DataTypes } from 'sequelize'
+module.exports = (sequelize, DataTypes) => {
+  const alias = 'User'
 
-const sequelize = new Sequelize('sqlite::memory:')
-
-export const User = sequelize.define('User', {
-  id: {
-    primaryKey: true,
-    autoIncrement: true,
-    type: DataTypes.INTEGER.UNSIGNED,
-    allowNull: false
-  },
-  email: {
-    allowNull: false,
-    type: DataTypes.STRING,
-    unique: true
-  },
-  password: {
-    allowNull: false,
-    type: DataTypes.STRING
+  const cols = {
+    id: {
+      primaryKey: true,
+      autoIncrement: true,
+      type: DataTypes.INTEGER.UNSIGNED,
+      allowNull: false
+    },
+    email: {
+      allowNull: false,
+      type: DataTypes.STRING,
+      unique: true
+    },
+    password: {
+      allowNull: false,
+      type: DataTypes.STRING
+    }
   }
-}, {
-  timestamps: false
-})
 
-User.hasOne('Account')
+  const config = {
+    underscored: true,
+    tableName: 'users',
+    timestamps: false,
+    paranoid: false,
+    charset: 'utf8',
+    dialectOptions: {
+      collate: 'utf8mb4_unicode:ci'
+    }
+  }
+
+  const User = sequelize.define(
+    alias,
+    cols,
+    config
+  )
+
+  User.associate = (model) => {
+    User.hasOne(model.Account, {
+      as: 'account',
+      foreingKey: 'user_id'
+    })
+  }
+
+  return User
+}
