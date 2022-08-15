@@ -8,6 +8,18 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
+    amount: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      allowNull: false
+    },
+    concept: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    type: {
+      type: DataTypes.CHAR(3),
+      allowNull: false
+    },
     accountId: {
       type: DataTypes.INTEGER.UNSIGNED,
       field: 'account_id'
@@ -15,18 +27,6 @@ module.exports = (sequelize, DataTypes) => {
     categoryId: {
       type: DataTypes.INTEGER.UNSIGNED,
       field: 'category_id'
-    },
-    concept: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    amount: {
-      type: DataTypes.INTEGER.UNSIGNED,
-      allowNull: false
-    },
-    type: {
-      type: DataTypes.CHAR(3),
-      allowNull: false
     }
   }
 

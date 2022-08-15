@@ -1,13 +1,38 @@
 const db = require('../database/models')
 
 const usersController = {
-  signup: async (req, res, next) => {
-    const users = await User.findAll()
+  signUp: async (req, res, next) => {
+    // check if email unique
+    // hash password
+    // store in database
+
+    // create account assign user ID
+    // create default categories assign userID
+
+    // return jwt
+
+    const newUser = await db.User.create({
+      email: req.body.email,
+      password: req.body.password
+    })
     try {
-      return res.status(200).json(users)
+      db.Account.create({
+        userId: newUser.id
+      })
+        .then(success => res.status(200).json(success))
+        .catch(err => next(err))
     } catch (err) {
+      console.log('i am the user creation block')
       next(err)
     }
+  },
+
+  signIn: async (req, res, next) => {
+    // check if email exists in DB
+    // check if passwords hash sync
+
+    // return jwt
+    res.send('signin')
   }
 }
 

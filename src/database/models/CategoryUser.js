@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const alias = 'Account'
+  const alias = 'CategoryUser'
 
   const cols = {
     id: {
@@ -8,10 +8,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false
     },
-    balance: {
+    categoryId: {
       type: DataTypes.INTEGER.UNSIGNED,
-      allowNull: false,
-      defaultValue: 0
+      field: 'category_id'
     },
     userId: {
       type: DataTypes.INTEGER.UNSIGNED,
@@ -21,31 +20,30 @@ module.exports = (sequelize, DataTypes) => {
 
   const config = {
     underscored: true,
-    tableName: 'accounts',
+    tableName: 'category_user',
     timestamps: false,
     paranoid: false,
     charset: 'utf8',
     dialectOptions: {
       collate: 'utf8mb4_unicode:ci'
-    }
+    },
+    freezeTableName: true
   }
 
-  const Account = sequelize.define(
+  const CategoryUser = sequelize.define(
     alias,
     cols,
     config
   )
 
-  Account.associate = (model) => {
-    Account.hasOne(model.Transaction, {
-      as: 'user',
-      foreignKey: 'user_id'
+  CategoryUser.associate = (model) => {
+    CategoryUser.belongsTo(model.Category, {
+      foreignKey: 'category_id'
     })
-    Account.hasMany(model.Transaction, {
-      as: 'transactions',
-      foreignKey: 'account_id'
+    CategoryUser.belongsTo(model.User, {
+      foreignKey: 'user_id'
     })
   }
 
-  return Account
+  return CategoryUser
 }

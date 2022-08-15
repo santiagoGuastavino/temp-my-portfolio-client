@@ -2,9 +2,11 @@ require('dotenv').config()
 const express = require('express')
 
 const app = express()
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 
 // routes
-const userRouter = require('./routes/usersRouter.js')
+const userRouter = require('./routes/users.js')
 
 app.use('/users', userRouter)
 
@@ -14,17 +16,11 @@ app.use((err, req, res, next) => {
 })
 
 // port set up
-const PORT = process.env.PORT | 3001
+const PORT = process.env.PORT || 3001
 
 // application init
 const db = require('./database/models')
-async function start () {
-  await db.sequelize.sync()
-  try {
+db.sequelize.sync()
+  .then(() => {
     app.listen(PORT, () => console.log(`Serving @ ${PORT}`))
-  } catch (err) {
-    console.log(err)
-  }
-}
-
-start()
+  })

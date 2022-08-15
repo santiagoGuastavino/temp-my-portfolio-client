@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     id: {
       primaryKey: true,
       autoIncrement: true,
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false
     },
     name: {
@@ -32,9 +32,16 @@ module.exports = (sequelize, DataTypes) => {
   )
 
   Category.associate = (model) => {
-    Category.hasMany(model.Transaction, {
-      as: 'transactions',
+    Category.hasOne(model.Transaction, {
+      as: 'transaction',
       foreignKey: 'category_id'
+    })
+    Category.belongsToMany(model.User, {
+      as: 'users',
+      through: 'category_user',
+      foreignKey: 'category_id',
+      otherKey: 'user_id',
+      timestamps: false
     })
   }
 
