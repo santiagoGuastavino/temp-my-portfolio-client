@@ -16,17 +16,27 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    type: {
-      type: DataTypes.CHAR(3),
-      allowNull: false
+    categoryId: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      field: 'category_id'
+    },
+    transactionTypeId: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      field: 'transaction_type_id'
     },
     accountId: {
       type: DataTypes.INTEGER.UNSIGNED,
       field: 'account_id'
     },
-    categoryId: {
-      type: DataTypes.INTEGER.UNSIGNED,
-      field: 'category_id'
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      field: 'created_at'
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      field: 'updated_at'
     }
   }
 
@@ -48,13 +58,17 @@ module.exports = (sequelize, DataTypes) => {
   )
 
   Transaction.associate = (model) => {
-    Transaction.belongsTo(model.Account, {
-      as: 'account',
-      foreignKey: 'account_id'
-    })
     Transaction.belongsTo(model.Category, {
       as: 'category',
       foreignKey: 'category_id'
+    })
+    Transaction.belongsTo(model.TransactionType, {
+      as: 'transactionType',
+      foreignKey: 'transaction_type_id'
+    })
+    Transaction.belongsTo(model.Account, {
+      as: 'account',
+      foreignKey: 'account_id'
     })
   }
 

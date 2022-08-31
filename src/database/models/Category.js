@@ -36,13 +36,6 @@ module.exports = (sequelize, DataTypes) => {
       as: 'transaction',
       foreignKey: 'category_id'
     })
-    Category.belongsToMany(model.User, {
-      as: 'users',
-      through: 'category_user',
-      foreignKey: 'category_id',
-      otherKey: 'user_id',
-      timestamps: false
-    })
   }
 
   return Category

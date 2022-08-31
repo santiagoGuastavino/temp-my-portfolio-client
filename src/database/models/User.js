@@ -39,14 +39,7 @@ module.exports = (sequelize, DataTypes) => {
   User.associate = (model) => {
     User.hasOne(model.Account, {
       as: 'account',
-      foreingKey: 'user_id'
-    })
-    User.belongsToMany(model.Category, {
-      as: 'categories',
-      through: 'category_user',
-      foreignKey: 'user_id',
-      otherKey: 'category_id',
-      timestamps: false
+      foreignKey: 'user_id'
     })
   }
 

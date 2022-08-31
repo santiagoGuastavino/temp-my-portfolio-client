@@ -1,38 +1,50 @@
 const db = require('../database/models')
+const { responseHandler } = require('../helpers/responseHandler')
 
 const usersController = {
   signUp: async (req, res, next) => {
-    // check if email unique
-    // hash password
-    // store in database
-
-    // create account assign user ID
-    // create default categories assign userID
-
-    // return jwt
-
-    const newUser = await db.User.create({
-      email: req.body.email,
-      password: req.body.password
+    const user = await db.User.findOne({
+      where: {
+        email: req.body.email
+      }
     })
     try {
-      db.Account.create({
-        userId: newUser.id
-      })
-        .then(success => res.status(200).json(success))
-        .catch(err => next(err))
+      if (user) {
+        return responseHandler(409, 'E-mail already in use.', next)
+      } else {
+        db.User.create({
+          email: req.body.email,
+          password: req.body.password
+        })
+          .then(async (newUser) => {
+            db.Account.create({
+              userId: newUser.id
+            })
+              .then(() => res.status(201).json(responseHandler(201)))
+              .catch(err => next(err))
+          })
+          .catch(err => next(err))
+      }
     } catch (err) {
-      console.log('i am the user creation block')
-      next(err)
+      return next(err)
     }
   },
 
   signIn: async (req, res, next) => {
-    // check if email exists in DB
-    // check if passwords hash sync
-
-    // return jwt
-    res.send('signin')
+    const userToLog = await db.User.findOne({
+      where: {
+        email: req.body.email
+      }
+    })
+    try {
+      if (!userToLog) {
+        return responseHandler(409, 'E-mail not registered.', next)
+      } else {
+        return res.status(200).json(responseHandler(200))
+      }
+    } catch (err) {
+      next(err)
+    }
   }
 }
 

@@ -37,13 +37,12 @@ module.exports = (sequelize, DataTypes) => {
   )
 
   Account.associate = (model) => {
-    Account.hasOne(model.Transaction, {
+    Account.belongsTo(model.User, {
       as: 'user',
       foreignKey: 'user_id'
     })
     Account.hasMany(model.Transaction, {
-      as: 'transactions',
-      foreignKey: 'account_id'
+      as: 'transactions'
     })
   }
 
