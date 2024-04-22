@@ -1,10 +1,18 @@
+import "@/styles/globals.scss";
 import { AppProps } from "next/app";
 import Head from "next/head";
 import { useEffect } from "react";
+import { Raleway } from "next/font/google";
+
+const raleway = Raleway({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+});
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_DEFAULT_URL}/wake`);
+    fetch("http://192.168.1.106:9000/wake");
+    // fetch(`${process.env.NEXT_PUBLIC_DEFAULT_URL}/wake`);
   }, []);
 
   return (
@@ -13,7 +21,9 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
         <title>Santiago Guastavino</title>
         <link rel="icon" href="favicon.ico" sizes="any" />
       </Head>
-      <Component {...pageProps} />
+      <main className={raleway.className}>
+        <Component {...pageProps} />
+      </main>
     </>
   );
 }

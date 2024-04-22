@@ -1,0 +1,9 @@
+.section {
+  height: calc(100vh - 50px);
+  width: calc(100% - 50px);
+  margin: 0 25px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,40 @@
+@import "../../../styles/_constants.scss";
+
+.header {
+  width: 100%;
+  
+  .greet {
+    color: $pink;
+    font-weight: 300;
+    font-size: 16px;
+  }
+
+  .name, .title {
+    color: $white;
+    font-size: 26px;
+    font-weight: 700;
+  }
+
+  .name {
+    margin: 10px 0;
+  }
+
+  .title {
+    color: $gray;
+  }
+}
+
+.article {
+  width: 100%;
+  color: $gray;
+  margin-top: 30px;
+
+  p {
+    font-size: 18px;
+    margin-top: 10px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}

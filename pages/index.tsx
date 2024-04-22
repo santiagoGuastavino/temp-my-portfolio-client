@@ -1,3 +1,10 @@
+import { Home, TopBar } from "@/components";
+
 export default function IndexPage(): JSX.Element {
-  return <>Hello</>;
+  return (
+    <>
+      <TopBar />
+      <Home />
+    </>
+  );
 }
