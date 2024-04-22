@@ -1,5 +1,13 @@
 {
-  "singleQuote": true,
+  "printWidth": 100,
   "trailingComma": "all",
-  "endofline": "auto"
+  "tabWidth": 2,
+  "semi": true,
+  "singleQuote": false,
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "endOfLine": "auto",
+  "insert_final_newline": true,
+  "import-spacing": true,
+  "jsxBracketSameLine": false
 }
