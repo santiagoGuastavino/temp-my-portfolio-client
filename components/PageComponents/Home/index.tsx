@@ -1,4 +1,4 @@
-import { Section } from "@/components";
+import { Header, Section } from "@/components";
 import styles from "./Home.module.scss";
 
 export default function Home(): JSX.Element {
@@ -6,8 +6,8 @@ export default function Home(): JSX.Element {
     <Section name="Home">
       <header className={styles.header}>
         <h3 className={styles.greet}>Hi, my name is</h3>
-        <h2 className={styles.name}>Santiago Guastavino</h2>
-        <h2 className={styles.title}>I&apos;m a Software Developer</h2>
+        <Header text="Santiago Guastavino" />
+        <Header text="I'm a Software Developer" alt={true} />
       </header>
       <article className={styles.article}>
         <p>Skilled in writing clean code.</p>

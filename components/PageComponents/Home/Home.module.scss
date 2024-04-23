@@ -1,4 +1,4 @@
-@import "../../../styles/_constants.scss";
+@import "../../../styles/constants";
 
 .header {
   width: 100%;
@@ -7,27 +7,14 @@
     color: $pink;
     font-weight: 300;
     font-size: 16px;
-  }
-
-  .name, .title {
-    color: $white;
-    font-size: 26px;
-    font-weight: 700;
-  }
-
-  .name {
-    margin: 10px 0;
-  }
-
-  .title {
-    color: $gray;
+    margin-bottom: 10px;
   }
 }
 
 .article {
   width: 100%;
   color: $gray;
-  margin-top: 30px;
+  margin-top: 20px;
 
   p {
     font-size: 18px;
@@ -38,3 +25,5 @@
     }
   }
 }
+
+@media (min-width: 768px) {}

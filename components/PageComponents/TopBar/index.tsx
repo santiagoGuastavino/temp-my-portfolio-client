@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./TopBar.module.scss";
-import { Icon, Section } from "@/components";
+import { Icon } from "@/components";
 import { Link } from "react-scroll";
 
 export default function TopBar(): JSX.Element {
@@ -21,13 +21,15 @@ export default function TopBar(): JSX.Element {
         </div>
       </nav>
       {showLinks ? (
-        <Section name="TopBar">
+        <section className={styles.mobileSection}>
           {links.map((link: string, index: number) => (
-            <div className={styles.linkBox} key={`${link}-${index}`}>
-              <Link to={link}>{link}</Link>
+            <div key={`${link}-${index}`}>
+              <Link to={link} onClick={() => handleClick()}>
+                {link}
+              </Link>
             </div>
           ))}
-        </Section>
+        </section>
       ) : (
         <></>
       )}

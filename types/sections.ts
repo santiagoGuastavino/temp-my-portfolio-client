@@ -1,1 +1,1 @@
-export type Sections = "TopBar" | "Home" | "Experience" | "Skills" | "Work" | "About" | "Contact";
+export type Sections = "Home" | "Experience" | "Skills" | "Work" | "About" | "Contact";

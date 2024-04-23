@@ -1,0 +1,14 @@
+@import "../../styles/constants";
+
+.header {
+  font-size: 26px;
+  font-weight: 700;
+  color: $white;
+  margin-bottom: 10px;
+}
+
+.alt {
+  color: $gray;
+}
+
+@media (min-width: 768px) {}

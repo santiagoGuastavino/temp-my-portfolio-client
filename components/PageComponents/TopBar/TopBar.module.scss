@@ -1,4 +1,4 @@
-@import "../../../styles/constants.scss";
+@import "../../../styles/constants";
 
 .nav {
   height: 50px;
@@ -8,6 +8,9 @@
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  background-color: $blue;
+  z-index: 3;
 }
 
 .title {
@@ -23,10 +26,24 @@
   margin-top: 5px;
 }
 
-.linkBox {
-  margin: 25px 0;
-  color: $white;
-  font-size: 40px;
+.mobileSection {
+  height: calc(100vh - 50px);
+  width: calc(100% - 50px);
+  margin: 0 25px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 2;
+  background-color: $blue;
+  overflow: hidden;
+
+  div {
+    margin: 25px 0;
+    color: $white;
+    font-size: 40px;
+  }
 }
 
 @media (min-width: 768px) {
