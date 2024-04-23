@@ -1,15 +1,15 @@
-@import "../../styles/constants";
+@import "../../styles/colors";
 
 .header {
   font-size: 30px;
   font-weight: 700;
-  color: $white;
-  margin-bottom: 10px;
+  color: $main;
+  margin-bottom: 20px;
   width: 100%;
 }
 
 .alt {
-  color: $gray;
+  color: $secondary;
 }
 
 @media (min-width: 768px) {}

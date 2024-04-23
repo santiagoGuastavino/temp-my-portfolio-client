@@ -25,10 +25,9 @@ export default function TopBar(): JSX.Element {
       <nav className={styles.nav}>
         <Icon
           icon={showMobileModalLinks ? "close" : "menu"}
-          color="white"
+          color="background"
           size={35}
           onClick={() => handleClick()}
-          className={styles.mobileIcon}
         />
       </nav>
       {showMobileModalLinks ? (

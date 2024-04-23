@@ -1,33 +1,33 @@
-@import "../../../styles/constants";
+@import "../../../styles/colors";
 
 .article {
   width: 100%;
-  border-bottom: 0.1px solid $white;
+  border-bottom: 0.1px solid $main;
   margin-bottom: 15px;
 
   .title {
     font-size: 24px;
-    color: $gray;
+    color: $secondary;
     font-weight: 600;
     margin-bottom: 5px;
   }
 
   .company {
     font-size: 22px;
-    color: $pink;
+    color: $brand;
     font-weight: 600;
     margin-bottom: 5px;
   }
 
   .fromUntil {
-    color: $white;
+    color: $main;
     display: flex;
     column-gap: 5px;
     margin-bottom: 5px;
   }
 
   .tech {
-    color: $gray;
+    color: $secondary;
     display: flex;
     flex-flow: row wrap;
     column-gap: 15px;

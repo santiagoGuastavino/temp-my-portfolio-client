@@ -1,4 +1,4 @@
-import { Home, TopBar, Experience, Skills } from "@/components";
+import { Home, TopBar, Experience, Skills, Work } from "@/components";
 
 export default function IndexPage(): JSX.Element {
   return (
@@ -7,6 +7,7 @@ export default function IndexPage(): JSX.Element {
       <Home />
       <Experience />
       <Skills />
+      <Work />
     </>
   );
 }

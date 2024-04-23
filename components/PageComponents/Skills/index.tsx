@@ -5,7 +5,6 @@ import {
   DockerImage,
   ExpressjsImage,
   GitImage,
-  JavaImage,
   JavascriptImage,
   NestjsImage,
   NextjsImage,
@@ -24,6 +23,7 @@ export default function Skills(): JSX.Element {
         {skills.map((skill: ISkill, index: number) => (
           <div key={`${skill.skill}-${index}`} className={styles.skill}>
             <Image className={styles.image} src={skill.image} alt={skill.skill} />
+            <p>{skill.skill}</p>
           </div>
         ))}
       </article>
@@ -33,43 +33,39 @@ export default function Skills(): JSX.Element {
 
 const skills: ISkill[] = [
   {
-    image: DockerImage,
-    skill: "Docker",
-  },
-  {
-    image: ExpressjsImage,
-    skill: "Express.js",
-  },
-  {
-    image: GitImage,
-    skill: "Git",
-  },
-  {
-    image: JavaImage,
-    skill: "Java",
+    image: TypescriptImage,
+    skill: "Typescript",
   },
   {
     image: JavascriptImage,
     skill: "Javascript",
   },
   {
+    image: NodejsImage,
+    skill: "Node.js",
+  },
+  {
     image: NestjsImage,
     skill: "Nest.js",
   },
   {
-    image: NextjsImage,
-    skill: "Next.js",
-  },
-  {
-    image: NodejsImage,
-    skill: "Node.js",
+    image: ExpressjsImage,
+    skill: "Express.js",
   },
   {
     image: ReactjsImage,
     skill: "React",
   },
   {
-    image: TypescriptImage,
-    skill: "Typescript",
+    image: NextjsImage,
+    skill: "Next.js",
+  },
+  {
+    image: GitImage,
+    skill: "Git",
+  },
+  {
+    image: DockerImage,
+    skill: "Docker",
   },
 ];

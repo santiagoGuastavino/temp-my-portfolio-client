@@ -1,4 +1,4 @@
-@import './constants';
+@import './colors';
 
 * {
   margin: 0;
@@ -7,6 +7,6 @@
 }
 
 body {
-  background-color: $blue;
+  background-color: $background;
   overflow-x: hidden;
 }

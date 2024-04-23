@@ -1,18 +1,19 @@
-@import "../../../styles/constants";
+@import "../../../styles/colors";
 
 .nav {
-  height: 50px;
-  width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
   align-items: center;
   position: fixed;
-  background-color: $blue;
+  top: 15px;
+  right: 15px;
+  background-color: $secondary;
   z-index: 3;
+  border-radius: 6px;
 
-  .mobileIcon {
-    margin-right: 15px;
+  .white {
+    color: #fff;
   }
 }
 
@@ -25,11 +26,11 @@
   align-items: center;
   position: fixed;
   z-index: 2;
-  background-color: $blue;
+  background-color: $background;
 
   div {
     margin: 25px 0;
-    color: $white;
+    color: $main;
     font-size: 40px;
   }
 }
