@@ -4,3 +4,4 @@ export { default as Section } from "./Section";
 export { default as Home } from "./PageComponents/Home";
 export { default as Experience } from "./PageComponents/Experience";
 export { default as Header } from "./Header";
+export { default as Skills } from "./PageComponents/Skills";

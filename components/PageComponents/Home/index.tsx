@@ -5,7 +5,7 @@ export default function Home(): JSX.Element {
   return (
     <Section name="Home">
       <header className={styles.header}>
-        <h3 className={styles.greet}>Hi, my name is</h3>
+        <p className={styles.greet}>Hi, my name is</p>
         <Header text="Santiago Guastavino" />
         <Header text="I'm a Software Developer" alt={true} />
       </header>

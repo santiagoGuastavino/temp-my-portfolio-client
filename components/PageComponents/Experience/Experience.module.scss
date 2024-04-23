@@ -1,12 +1,39 @@
 @import "../../../styles/constants";
 
-.header {
-  width: 100%;
-  color: $white;
-}
-
 .article {
   width: 100%;
+  border-bottom: 0.1px solid $white;
+  margin-bottom: 15px;
+
+  .title {
+    font-size: 24px;
+    color: $gray;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  .company {
+    font-size: 22px;
+    color: $pink;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  .fromUntil {
+    color: $white;
+    display: flex;
+    column-gap: 5px;
+    margin-bottom: 5px;
+  }
+
+  .tech {
+    color: $gray;
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: 15px;
+    row-gap: 5px;
+    margin-bottom: 5px;
+  }
 }
 
 @media (min-width: 768px) {}

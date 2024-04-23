@@ -1,30 +1,41 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./TopBar.module.scss";
 import { Icon } from "@/components";
 import { Link } from "react-scroll";
 
 export default function TopBar(): JSX.Element {
-  const [showLinks, setShowLinks] = useState<boolean>(false);
+  const [showMobileModalLinks, setShowMobileModalLinks] = useState<boolean>(false);
 
   const handleClick = (): void => {
-    setShowLinks(!showLinks);
+    setShowMobileModalLinks(!showMobileModalLinks);
   };
 
   const links: string[] = ["Home", "Experience", "Skills", "Work", "About", "Contact"];
 
+  useEffect(() => {
+    if (showMobileModalLinks) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "auto";
+    }
+  }, [showMobileModalLinks]);
+
   return (
     <>
       <nav className={styles.nav}>
-        <div className={styles.title}>{showLinks ? <></> : <h1>Santiago Guastavino</h1>}</div>
-        <div className={styles.menu}>
-          <Icon icon={showLinks ? "close" : "menu"} onClick={() => handleClick()} />
-        </div>
+        <Icon
+          icon={showMobileModalLinks ? "close" : "menu"}
+          color="white"
+          size={35}
+          onClick={() => handleClick()}
+          className={styles.mobileIcon}
+        />
       </nav>
-      {showLinks ? (
+      {showMobileModalLinks ? (
         <section className={styles.mobileSection}>
           {links.map((link: string, index: number) => (
             <div key={`${link}-${index}`}>
-              <Link to={link} onClick={() => handleClick()}>
+              <Link smooth={true} duration={500} to={link} onClick={() => handleClick()}>
                 {link}
               </Link>
             </div>

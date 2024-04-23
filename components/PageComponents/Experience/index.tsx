@@ -6,26 +6,23 @@ import { IExperience } from "@/types";
 export default function Experience(): JSX.Element {
   return (
     <Section name="Experience">
-      <header className={styles.header}>
-        <Header text="Experience" />
-      </header>
-      <article className={styles.article}>
-        {experiences.map((experience: IExperience, index: number) => (
-          <div key={`${experience.company}-${index}`}>
-            <h3>{experience.title}</h3>
-            <h3>{experience.company}</h3>
-            <div>
-              <span>{experience.from}</span>
-              <span>{experience.until}</span>
-            </div>
-            <div>
-              {experience.tech.map((tech: string, index: number) => (
-                <span key={`${tech}-${index}`}>{tech}</span>
-              ))}
-            </div>
+      <Header text="Experience" />
+      {experiences.map((experience: IExperience, index: number) => (
+        <article className={styles.article} key={`${experience.company}-${index}`}>
+          <h3 className={styles.title}>{experience.title}</h3>
+          <h3 className={styles.company}>{experience.company}</h3>
+          <div className={styles.fromUntil}>
+            <span>{experience.from}</span>
+            <span>-</span>
+            <span>{experience.until}</span>
           </div>
-        ))}
-      </article>
+          <div className={styles.tech}>
+            {experience.tech.map((tech: string, index: number) => (
+              <span key={`${tech}-${index}`}>{tech}</span>
+            ))}
+          </div>
+        </article>
+      ))}
     </Section>
   );
 }
@@ -36,7 +33,19 @@ const experiences: IExperience[] = [
     title: "Software Engineer",
     from: "May 2023",
     until: "Present",
-    tech: ["Typescript", "Node.js", "Next.js", "React.js", "Nest.js", "REST", "Docker", "Jenkins"],
+    tech: [
+      "Typescript",
+      "Node.js",
+      "Next.js",
+      "React.js",
+      "Nest.js",
+      "Zustand",
+      "REST",
+      "Docker",
+      "Jenkins",
+      "Rancher",
+      "Grafana",
+    ],
   },
   {
     company: "Limboteams",

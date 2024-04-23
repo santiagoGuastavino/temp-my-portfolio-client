@@ -2,34 +2,23 @@
 
 .nav {
   height: 50px;
-  width: calc(100% - 30px);
-  margin: 0 15px;
+  width: 100%;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   position: fixed;
   background-color: $blue;
   z-index: 3;
-}
 
-.title {
-  color: $pink;
-  
-  h1 {
-    font-weight: 400;
+  .mobileIcon {
+    margin-right: 15px;
   }
 }
 
-.menu {
-  color: $white;
-  margin-top: 5px;
-}
-
 .mobileSection {
-  height: calc(100vh - 50px);
-  width: calc(100% - 50px);
-  margin: 0 25px;
+  height: 100vh;
+  width: 100%;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
@@ -37,7 +26,6 @@
   position: fixed;
   z-index: 2;
   background-color: $blue;
-  overflow: hidden;
 
   div {
     margin: 25px 0;

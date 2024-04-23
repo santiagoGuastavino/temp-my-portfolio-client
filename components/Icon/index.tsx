@@ -1,24 +1,14 @@
-import { useEffect, useRef, useState } from "react";
-
 interface Props {
   icon: "menu" | "close";
+  color: "white";
+  size: number;
   onClick: (event?: React.MouseEvent<HTMLElement>) => void;
+  className: string;
 }
 
-export default function Icon({ icon, onClick }: Props): JSX.Element {
-  const svgRef = useRef<SVGSVGElement>(null);
-
-  const [color, setColor] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (svgRef.current) {
-      const inheritedColor = findInheritedColor(svgRef.current.parentElement || document.body);
-
-      setColor(inheritedColor);
-    }
-  }, []);
-
+export default function Icon({ icon, color, size, onClick, className }: Props): JSX.Element {
   let viewBox: string = "";
+  let fill: string = "";
 
   switch (icon) {
     case "menu":
@@ -29,15 +19,21 @@ export default function Icon({ icon, onClick }: Props): JSX.Element {
       break;
   }
 
+  switch (color) {
+    case "white":
+      fill = "rgb(204 214 246)";
+      break;
+  }
+
   return (
     <svg
-      ref={svgRef}
       xmlns="http://www.w3.org/2000/svg"
-      height="30px"
+      height={`${size}px`}
       viewBox={viewBox}
-      width="30px"
-      fill={color !== null ? color : ""}
+      width={`${size}px`}
+      fill={fill}
       onClick={() => onClick()}
+      className={className}
     >
       {icon === "menu" && (
         <>
@@ -51,14 +47,3 @@ export default function Icon({ icon, onClick }: Props): JSX.Element {
     </svg>
   );
 }
-
-const findInheritedColor = (element: HTMLElement): string | null => {
-  const computedStyle = window.getComputedStyle(element);
-  const color = computedStyle.getPropertyValue("color");
-
-  if (color) {
-    return color;
-  }
-
-  return null;
-};
