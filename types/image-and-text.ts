@@ -1,6 +1,7 @@
 import { StaticImageData } from "next/image";
 
-export interface ISkill {
+export interface IImageAndText {
   image: StaticImageData;
-  skill: string;
+  text: string;
+  link?: string;
 }

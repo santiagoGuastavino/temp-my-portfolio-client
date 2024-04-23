@@ -6,3 +6,4 @@ export { default as Experience } from "./PageComponents/Experience";
 export { default as Header } from "./Header";
 export { default as Skills } from "./PageComponents/Skills";
 export { default as Work } from "./PageComponents/Work";
+export { default as ImageAndTextLayout } from "./ImageAndTextLayout";

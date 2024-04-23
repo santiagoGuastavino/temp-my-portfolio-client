@@ -9,6 +9,16 @@ import NodejsImage from "./images/tech/nodejs.webp";
 import ReactjsImage from "./images/tech/reactjs.png";
 import TypescriptImage from "./images/tech/typescript.png";
 
+import GameCentralImage from "./images/project/game-central.jpg";
+import MercadoLiebreImage from "./images/project/mercado-liebre.jpg";
+import MoviesMvcImage from "./images/project/movies-mvc.jpg";
+import MoviesReactReduxImage from "./images/project/movies-react-redux.jpg";
+import ParallaxEffectImage from "./images/project/parallax-effect.jpg";
+import PhotographyPortfolioImage from "./images/project/photography-portfolio.jpg";
+import PimientaYSalImage from "./images/project/pimienta-y-sal.jpg";
+import SimpleSampleImage from "./images/project/simple-sample.jpg";
+import TuiterImage from "./images/project/tuiter.jpg";
+
 export {
   DockerImage,
   ExpressjsImage,
@@ -20,4 +30,13 @@ export {
   NodejsImage,
   ReactjsImage,
   TypescriptImage,
+  GameCentralImage,
+  MercadoLiebreImage,
+  MoviesMvcImage,
+  MoviesReactReduxImage,
+  ParallaxEffectImage,
+  PhotographyPortfolioImage,
+  PimientaYSalImage,
+  SimpleSampleImage,
+  TuiterImage,
 };

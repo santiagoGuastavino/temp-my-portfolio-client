@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Section from "@/components/Section";
-import { ISkill } from "@/types";
 import {
   DockerImage,
   ExpressjsImage,
@@ -12,60 +11,53 @@ import {
   ReactjsImage,
   TypescriptImage,
 } from "@/public";
-import Image from "next/image";
-import styles from "./Skills.module.scss";
+import ImageAndTextLayout from "@/components/ImageAndTextLayout";
+import { IImageAndText } from "@/types";
 
 export default function Skills(): JSX.Element {
   return (
     <Section name="Skills">
       <Header text="Skills" />
-      <article className={styles.article}>
-        {skills.map((skill: ISkill, index: number) => (
-          <div key={`${skill.skill}-${index}`} className={styles.skill}>
-            <Image className={styles.image} src={skill.image} alt={skill.skill} />
-            <p>{skill.skill}</p>
-          </div>
-        ))}
-      </article>
+      <ImageAndTextLayout imageAndTextArray={skills} />
     </Section>
   );
 }
 
-const skills: ISkill[] = [
+const skills: IImageAndText[] = [
   {
     image: TypescriptImage,
-    skill: "Typescript",
+    text: "Typescript",
   },
   {
     image: JavascriptImage,
-    skill: "Javascript",
+    text: "Javascript",
   },
   {
     image: NodejsImage,
-    skill: "Node.js",
+    text: "Node.js",
   },
   {
     image: NestjsImage,
-    skill: "Nest.js",
+    text: "Nest.js",
   },
   {
     image: ExpressjsImage,
-    skill: "Express.js",
+    text: "Express.js",
   },
   {
     image: ReactjsImage,
-    skill: "React",
+    text: "React",
   },
   {
     image: NextjsImage,
-    skill: "Next.js",
+    text: "Next.js",
   },
   {
     image: GitImage,
-    skill: "Git",
+    text: "Git",
   },
   {
     image: DockerImage,
-    skill: "Docker",
+    text: "Docker",
   },
 ];
