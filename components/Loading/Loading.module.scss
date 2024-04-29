@@ -1,0 +1,10 @@
+@import "../../styles/colors.scss";
+
+.loading {
+  display: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+  overflow-y: hidden;
+  background-color: $background;
+}

@@ -2,11 +2,10 @@ interface Props {
   icon: "menu" | "close" | "feedback";
   color: "background" | "main" | "secondary" | "brand";
   size: number;
-  className: string;
   onClick?: (event?: React.MouseEvent<HTMLElement>) => void;
 }
 
-export default function Icon({ icon, color, size, className, onClick }: Props): JSX.Element {
+export default function Icon({ icon, color, size, onClick }: Props): JSX.Element {
   let viewBox: string = "";
   let filler: string = "";
 
@@ -45,7 +44,6 @@ export default function Icon({ icon, color, size, className, onClick }: Props): 
       width={`${size}px`}
       fill={filler}
       onClick={onClick ? () => onClick() : undefined}
-      className={className ?? ""}
     >
       {icon === "menu" && (
         <>

@@ -8,3 +8,4 @@ export { default as Skills } from "./PageComponents/Skills";
 export { default as Work } from "./PageComponents/Work";
 export { default as ImageAndTextLayout } from "./ImageAndTextLayout";
 export { default as Contact } from "./PageComponents/Contact";
+export { default as Loading } from "./Loading";

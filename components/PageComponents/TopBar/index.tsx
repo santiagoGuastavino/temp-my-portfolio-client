@@ -27,7 +27,6 @@ export default function TopBar(): JSX.Element {
           icon={showMobileModalLinks ? "close" : "menu"}
           color="main"
           size={35}
-          className=""
           onClick={() => handleClick()}
         />
       </nav>
