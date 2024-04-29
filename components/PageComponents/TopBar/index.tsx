@@ -10,7 +10,7 @@ export default function TopBar(): JSX.Element {
     setShowMobileModalLinks(!showMobileModalLinks);
   };
 
-  const links: string[] = ["Home", "Experience", "Skills", "Work", "About", "Contact"];
+  const links: string[] = ["Home", "Experience", "Skills", "Work", "Contact"];
 
   useEffect(() => {
     if (showMobileModalLinks) {
@@ -27,6 +27,7 @@ export default function TopBar(): JSX.Element {
           icon={showMobileModalLinks ? "close" : "menu"}
           color="main"
           size={35}
+          className=""
           onClick={() => handleClick()}
         />
       </nav>
