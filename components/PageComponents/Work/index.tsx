@@ -48,11 +48,6 @@ const projects: IImageAndText[] = [
     text: "My Movie App",
     link: "https://movies-react-redux.vercel.app/",
   },
-  // {
-  //   image: MoviesMvcImage,
-  //   text: "Movies",
-  //   link: "https://movies-mvc.onrender.com/",
-  // },
   {
     image: MercadoLiebreImage,
     text: "Mercado Liebre",

@@ -3,6 +3,7 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import { useEffect } from "react";
 import { Raleway } from "next/font/google";
+import { http } from "@/config";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -10,9 +11,14 @@ const raleway = Raleway({
 });
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
+  const getWake = async (): Promise<void> => {
+    try {
+      await http.get("/wake");
+    } catch (error) {}
+  };
+
   useEffect(() => {
-    fetch("http://192.168.1.106:9000/wake");
-    // fetch(`${process.env.NEXT_PUBLIC_DEFAULT_URL}/wake`);
+    getWake();
   }, []);
 
   return (
