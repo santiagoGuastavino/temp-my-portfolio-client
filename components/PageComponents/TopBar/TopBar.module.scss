@@ -19,6 +19,10 @@
   }
 }
 
+.desktopLinks {
+  display: none;
+}
+
 .mobileSection {
   height: 100vh;
   width: 100%;
@@ -38,9 +42,54 @@
 }
 
 @media (min-width: 768px) {
+  .icon {
+    display: none;
+  }
+
   .nav {
+    top: 0;
+    left: 0;
     height: 80px;
+    width: 100%;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    transition: $transition;
+
+    &.scrolling {
+      height: 50px;
+      border-bottom: 1px solid $secondary;
+      transition: $transition-slower;
+    }
+
+    &:hover, &:active {
+      background-color: initial;
+      cursor: auto;
+    }
+  }
+
+  .desktopLinks {
+    display: block;
     width: 1110px;
     margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    font-size: 26px;
+
+    div {
+      margin: 0 15px;
+      cursor: pointer;
+      transition: $transition;
+      padding: 2.5px 5px;
+      color: $main;
+
+      &:hover {
+        background-color: $secondary;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
 }
