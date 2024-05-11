@@ -38,7 +38,10 @@
   div {
     margin: 25px 0;
     color: $main;
-    font-size: 40px;
+  
+    a {
+      font-size: 40px;
+    }
   }
 }
 
@@ -75,7 +78,6 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-end;
-    font-size: 26px;
 
     div {
       margin: 0 15px;
@@ -90,6 +92,10 @@
 
       &:last-child {
         margin-right: 0;
+      }
+
+      a {
+        font-size: 26px;
       }
     }
   }

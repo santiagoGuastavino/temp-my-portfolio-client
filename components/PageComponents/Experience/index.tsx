@@ -7,27 +7,31 @@ export default function Experience(): JSX.Element {
   return (
     <Section name="Experience">
       <Header text="Experience" />
-      {experiences.map((experience: IExperience, index: number) => (
-        <article className={styles.article} key={`${experience.company}-${index}`}>
-          <h3 className={styles.title}>{experience.title}</h3>
-          <div className={styles.subTitle}>
-            <h3 className={styles.company}>{experience.company}</h3>
-            <div className={styles.fromUntil}>
-              <span>{experience.from}</span>
-              <span>-</span>
-              <span>{experience.until}</span>
-            </div>
+      <div className={styles.sectionSubWrapper}>
+        {experiences.map((experience: IExperience, index: number) => (
+          <div className={styles.articleWrapper} key={`${experience.company}-${index}`}>
+            <article className={styles.article}>
+              <p className={styles.title}>{experience.title}</p>
+              <div className={styles.subTitle}>
+                <p className={styles.company}>{experience.company}</p>
+                <div className={styles.fromUntil}>
+                  <span>{experience.from}</span>
+                  <span>-</span>
+                  <span>{experience.until}</span>
+                </div>
+              </div>
+              <div className={styles.tech}>
+                {experience.tech.map((tech: string, index: number) => (
+                  <>
+                    <span key={`${tech}-${index}`}>{tech}</span>
+                    {index !== experience.tech.length - 1 && <span>|</span>}
+                  </>
+                ))}
+              </div>
+            </article>
           </div>
-          <div className={styles.tech}>
-            {experience.tech.map((tech: string, index: number) => (
-              <>
-                <span key={`${tech}-${index}`}>{tech}</span>
-                {index !== experience.tech.length - 1 && <span>|</span>}
-              </>
-            ))}
-          </div>
-        </article>
-      ))}
+        ))}
+      </div>
     </Section>
   );
 }

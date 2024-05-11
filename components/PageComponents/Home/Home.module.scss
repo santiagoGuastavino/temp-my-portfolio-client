@@ -6,7 +6,6 @@
   .greet {
     color: $brand;
     font-weight: 300;
-    font-size: 16px;
     margin-bottom: 10px;
   }
 }
@@ -26,4 +25,10 @@
   }
 }
 
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+  .article {
+    p {
+      font-size: 20px;
+    }
+  }
+}

@@ -1,15 +1,28 @@
 @import "../../../styles/colors";
 
+.sectionSubWrapper {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+}
+
+.articleWrapper {
+  width: 100%;
+}
+
 .article {
   width: 100%;
-  border-bottom: 0.1px solid $main;
+  border-bottom: 0.1px solid $brand;
   padding-bottom: 5px;
   margin-bottom: 5px;
-  max-width: 300px;
+  max-width: fit-content;
 
   .title {
     font-size: 18px;
-    color: $secondary;
+    color: $main;
     font-weight: 600;
     margin-bottom: 5px;
   }
@@ -23,7 +36,6 @@
   }
 
   .company {
-    font-size: 16px;
     color: $brand;
     font-weight: 600;
     margin: 0 5px 5px 0;
@@ -34,7 +46,10 @@
     display: flex;
     column-gap: 5px;
     margin-bottom: 5px;
-    font-size: 14px;
+
+    span {
+      font-size: 14px;
+    }
   }
 
   .tech {
@@ -43,9 +58,57 @@
     flex-flow: row wrap;
     column-gap: 5px;
     row-gap: 5px;
-    margin-bottom: 5px;
-    font-size: 14px;
+    margin-bottom: 5x;
+
+    span {
+      font-size: 14px;
+    }
   }
 }
 
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+  .sectionSubWrapper {
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .articleWrapper {
+    width: 33%;
+
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        margin-top: 10px * $i;
+      }
+    }
+  }
+
+  .article {
+    margin: 0 0 0 0;
+    
+    .title {
+      font-size: 22px;
+    }
+  
+    .subTitle {
+      flex-flow: column wrap;
+      align-items: flex-start;
+    }
+
+    .company {
+      margin: 0 0 5px 0;
+    }
+  
+    .fromUntil {
+      span {
+        font-size: initial;
+      }
+    }
+  
+    .tech { 
+      span {
+        font-size: initial;
+      }
+    }
+  }
+}
