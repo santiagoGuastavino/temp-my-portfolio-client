@@ -19,6 +19,14 @@ a, p, span {
   font-size: 16px;
 }
 
+label, input, textarea {
+  font-size: 20px;
+}
+
+button {
+  font-size: 24px;
+}
+
 @media (min-width: 768px) {
   h2 {
     font-size: 36px;
